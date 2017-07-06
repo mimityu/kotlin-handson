@@ -9,17 +9,23 @@ import com.example.kotlinandroidhandson.model.Repository
 
 class RepositoryActivity : AppCompatActivity() {
 
+    companion object {
+        fun intent(context: Context, repository: Repository): Intent =
+                context.intent<RepositoryActivity>()
+                        .putExtra("repository", repository.toParcelable())
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repository)
 
         val repository: Repository = intent["repository"] ?: throw IllegalStateException("repositoryがないよ")
-//        title = repository.fullName
-//
-//        val repositoryView = findViewById(R.id.repository_view) as RepositoryView
-//        repositoryView.setRepository(repository)
-//
-//        val webView = findViewById(R.id.web_view) as WebView
-//        webView.loadUrl(repository.htmlUrl)
+        title = repository.fullName
+
+        val repositoryView = findViewById(R.id.repository_view) as RepositoryView
+        repositoryView.setRepository(repository)
+
+        val webView = findViewById(R.id.web_view) as WebView
+        webView.loadUrl(repository.htmlUrl)
     }
 }

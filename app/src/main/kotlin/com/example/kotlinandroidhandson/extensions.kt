@@ -6,11 +6,7 @@ import android.content.Intent
 import android.os.Parcelable
 import android.support.annotation.IdRes
 import android.view.View
-import kotlinx.coroutines.experimental.suspendCancellableCoroutine
 import org.parceler.Parcels
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import kotlin.reflect.KClass
 
